@@ -1,0 +1,254 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+aside {
+    width: 200px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="file"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Jogo */
+.frame img {
+    max-width: 70px; /* Diminui o tamanho da foto ao lado do jogador */
+    border-radius: 50%; /* Torna a foto redonda */
+    margin-right: 10px; /* Espaçamento entre a foto e o texto */
+}
+
+/* Ranking */
+#ranking-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#ranking-list li {
+    border-bottom: 2px solid #ccc; /* Adiciona borda inferior em cada linha */
+}
+
+/* Cores personalizadas */
+footer {
+    background-color: #333;
+}
+
+button {
+    background-color: #ffcc00;
+}
+
+button:hover {
+    background-color: #ff9900;
+}
+
+/* Ranking */
+aside {
+    width: 120%; /* Aumenta a largura */
+    max-width: 400px;
+    position: fixed;
+    right: 20px;
+    top: 525px; /* Ajuste para baixar o ranking */
+    padding: 20px;
+    margin-left: -10%; /* Ajuste para a esquerda */
+    margin-top: -10%; /* Ajuste para cima */
+    background-color: rgb(233, 233, 219);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+#ranking-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#ranking-list li::before {
+    content: attr(data-position);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    font-weight: bold;
+}
+
+#ranking-list li:last-child {
+    border-bottom: none;
+}
+
+#ranking-list li img {
+    max-width: 40px; /* Aumenta o tamanho dos ícones */
+    border-radius: 50%;
+    margin-right: 20px; /* Espaçamento entre o ícone e o texto */
+}
+
+#ranking-list li span::before {
+    content: "Jogador"; /* Título para o jogador */
+    position: absolute;
+    top: -20px; /* Posiciona acima do ícone */
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+}
+
+#ranking-list li strong::before {
+    position: absolute;
+    top: -20px; /* Posiciona acima do ícone */
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+}
+
+/* Design melhorado */
+#ranking-list li {
+    transition: background-color 0.3s;
+}
+
+#ranking-list li:hover {
+    background-color: #f9f9f9;
+}
+
+/* Efeito de zoom */
+#ranking-list li:hover {
+    transform: scale(1.1); /* Aumenta em 10% ao passar o mouse */
+    cursor: pointer;
+}
+
+#ranking-list li span,
+#ranking-list li strong {
+    text-align: center;
+}
+
+/* Tela do jogador */
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px; /* Aumenta o espaçamento do topo */
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+#game img {
+    max-width: 80px; /* Aumenta o tamanho da foto do jogador */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    /* Centraliza a foto do jogador */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#game p {
+    margin-bottom: 20px;
+    font-size: 24px; /* Aumenta o tamanho do texto */
+    text-align: center;
+}
+
+#game #word {
+    font-size: 48px; /* Aumenta o tamanho das letras das palavras */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#game #timer {
+    font-size: 36px; /* Aumenta o tamanho do temporizador */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#game #score {
+    font-size: 36px; /* Aumenta o tamanho da pontuação */
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Aumenta o tamanho do campo de digitar as palavras */
+#input {
+    font-size: 24px;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+    /* Posiciona o ranking abaixo do formulário */
+    aside {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 20px auto; /* Centraliza o ranking */
+        width: 90%; /* Reduz a largura do ranking */
+    }
+
+    /* Ajusta o tamanho do formulário */
+    #player-form {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

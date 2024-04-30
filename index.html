@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Palavras</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para seu arquivo CSS -->
+</head>
+<body>
+    <header>
+        <img src="imagens/logo amarelo rodape.png" alt="Logo">
+    </header>
+
+    <main>
+        <section id="intro">
+            <h1>JOGO DE PALAVRAS - FASE BETA</h1>
+            <!-- Formulário para digitar o nickname e upload da foto -->
+            <form id="player-form">
+                <label for="nickname">Nickname:</label>
+                <input type="text" id="nickname" name="nickname" required><br><br>
+                <label for="photo">Foto:</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required><br><br>
+                <button id="play-btn" type="submit">Jogar</button>
+            </form>
+        </section>
+
+        <section id="game" style="display: none;">
+            <p>Nickname: <span id="player-name"></span></p>
+            <div class="frame"> <!-- Alterado de photo-frame para frame -->
+                <img src="" id="player-photo" alt="Player Photo">
+            </div>
+            <p>Score: <span id="score">0</span></p>
+            <p>Timer: <span id="timer">10</span> seconds</p>
+            <div id="word"></div>
+            <input type="text" id="input" autofocus>
+        </section>
+
+        <section id="game-over" style="display: none;">
+            <h1>GAME OVER</h1>
+            <button id="try-again-btn">Tentar Novamente</button>
+            <button id="exit-btn">Sair</button>
+        </section>
+    </main>
+
+    <aside>
+        <ol id="ranking-list">
+        <div id="ranking"></div>
+        </ol>
+    </aside>
+
+    <footer>
+        <img src="imagens/logo amarelo rodape.png" alt="Logo">
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
