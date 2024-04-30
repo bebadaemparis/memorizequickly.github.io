@@ -291,13 +291,13 @@ document.getElementById("exit-btn").addEventListener("click", function () {
 // Variável para controlar se o ranking completo está sendo exibido
 let isFullRankingDisplayed = false;
 
-// Exibe o ranking na inicialização da página
+/// Exibe o ranking na inicialização da página
 function showRanking() {
     db.collection("rankings")
-        .orderBy("score", "desc")
+        .orderBy("score", "desc") // Ordena os documentos por score em ordem decrescente
         .limit(10) // Limita a exibição aos 10 primeiros colocados
         .onSnapshot((querySnapshot) => { // Atualiza o ranking em tempo real
-            let rankingHTML = "<ol>";
+            let rankingHTML = "";
             let position = 1;
             querySnapshot.forEach((doc) => {
                 let data = doc.data();
@@ -311,18 +311,19 @@ function showRanking() {
                 } else {
                     frameUrl = "4lugaremdiante.png";
                 }
-                rankingHTML += `<li><img class="frame" src="${frameUrl}" alt="Frame"><img class="player-photo" src="${data.photoUrl}" alt="${data.nickname}" width="50" height="50"> ${data.nickname} - ${data.score}</li>`;
+                rankingHTML += `
+                    <tr>
+                        <td>${position}</td>
+                        <td><img class="frame" src="${frameUrl}" alt="Frame"></td>
+                        <td><img class="player-photo" src="${data.photoUrl}" alt="${data.nickname}" width="50" height="50"></td>
+                        <td>${data.nickname}</td>
+                        <td>${data.score}</td>
+                    </tr>`;
                 position++;
             });
-            rankingHTML += "</ol>";
-            // Adiciona o botão "Ver Mais" se o ranking não estiver completo
-            if (!isFullRankingDisplayed) {
-                rankingHTML += "<button onclick='showFullRanking()'>Ver Mais</button>";
-            }
             document.getElementById("ranking").innerHTML = rankingHTML;
         });
-}
-
+    } 
 // Exibe o ranking completo
 function showFullRanking() {
     isFullRankingDisplayed = true;
@@ -343,3 +344,10 @@ document.querySelectorAll('#ranking-list li').forEach(item => {
         item.querySelector('span').textContent = playerName;
     });
 });
+
+function displayWord() {
+    wordDisplay.textContent = currentWord;
+    wordDisplay.style.color = "white";
+    wordDisplay.style.fontSize = "2em"; // Ajuste o tamanho da fonte conforme necessário
+    wordDisplay.style.textAlign = "center";
+}
