@@ -11,7 +11,12 @@
         <img src="imagens/logo_rodape_preto.png" alt="Logo">
     </header>
 
+    <audio id="correctSound" src="sons/certa.wav"></audio>
+<audio id="incorrectSound" src="sons/errada.mp3"></audio>
+
+
     <main>
+
         <section id="intro">
             <h1>JOGO DE PALAVRAS - FASE BETA</h1>
             <!-- Formulário para digitar o nickname e upload da foto -->
@@ -23,6 +28,7 @@
                 <button id="play-btn" type="submit">Jogar</button>
             </form>
         </section>
+
 
         <section id="game" style="display: none;">
             <p>Nickname: <span id="player-name"></span></p>
@@ -46,6 +52,7 @@
     </main>
 
     <aside>
+        <div class="ranking-container">
         <h2>Ranking</h2>
         <table id="ranking-list">
             <thead>
@@ -61,6 +68,7 @@
                 <!-- Aqui você pode adicionar as linhas da tabela com os dados do ranking -->
             </tbody>
         </table>
+        </div>
     </aside>
 
     <footer>
